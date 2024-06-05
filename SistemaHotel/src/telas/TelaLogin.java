@@ -54,8 +54,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jLabel3.setText("Senha:");
 
-        jPasswordField1.setText("jPasswordField1");
-
         jButton1.setText("Entrar");
 
         jButton2.setText("Sair");
