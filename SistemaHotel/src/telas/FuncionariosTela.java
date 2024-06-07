@@ -5,6 +5,8 @@
 package telas;
 
 import dao.FuncionariosDao;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 import model.Funcionarios;
 
 /**
@@ -34,68 +36,128 @@ public class FuncionariosTela extends javax.swing.JFrame {
         txtNome = new javax.swing.JTextField();
         txtTelefone = new javax.swing.JTextField();
         txtUsuario = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
         txtGenero = new javax.swing.JTextField();
         txtTipoUser = new javax.swing.JTextField();
         btnAdicionarFuncionario = new javax.swing.JButton();
+        lblID = new javax.swing.JLabel();
+        lblCPF = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
+        lblTelefone = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        lblSenha = new javax.swing.JLabel();
+        lblGenero = new javax.swing.JLabel();
+        lblTipoUser = new javax.swing.JLabel();
+        btnAdicionarFuncionario1 = new javax.swing.JButton();
+        btnAlterar = new javax.swing.JButton();
+        lblTitulo = new javax.swing.JLabel();
+        psSenha = new javax.swing.JPasswordField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnAdicionarFuncionario3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        txtID.setText("ID");
         txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIDActionPerformed(evt);
             }
         });
 
-        txtCPF.setText("CPF");
         txtCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCPFActionPerformed(evt);
             }
         });
 
-        txtNome.setText("Nome");
-
-        txtTelefone.setText("Telefone");
         txtTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefoneActionPerformed(evt);
             }
         });
 
-        txtUsuario.setText("Usuario");
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
             }
         });
 
-        txtSenha.setText("Senha");
-        txtSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaActionPerformed(evt);
-            }
-        });
-
-        txtGenero.setText("Genero");
         txtGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGeneroActionPerformed(evt);
             }
         });
 
-        txtTipoUser.setText("Tipo User");
         txtTipoUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTipoUserActionPerformed(evt);
             }
         });
 
-        btnAdicionarFuncionario.setText("Adicionar Funcionario");
+        btnAdicionarFuncionario.setText("Cadastrar");
         btnAdicionarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        lblID.setText("ID Funcionario:");
+
+        lblCPF.setText("CPF Funcionario:");
+
+        lblNome.setText("Nome Funcionario:");
+
+        lblTelefone.setText("Telefone Funcionario:");
+
+        lblUsuario.setText("Nome de Usuario:");
+
+        lblSenha.setText("Senha:");
+
+        lblGenero.setText("Genero Funcionario:");
+
+        lblTipoUser.setText("Tipo de User:");
+
+        btnAdicionarFuncionario1.setText("Remover");
+        btnAdicionarFuncionario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarFuncionario1ActionPerformed(evt);
+            }
+        });
+
+        btnAlterar.setText("Alterar");
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
+
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        lblTitulo.setText("Funcionarios");
+
+        psSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                psSenhaActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Funcionarios", "CPF Funcionarios", "Nome Funcionarios", "Telefone Funcionarios", "Usuarios", "Genero Funcionarios", "Tipo de User"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        btnAdicionarFuncionario3.setText("Sair");
+        btnAdicionarFuncionario3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarFuncionario3ActionPerformed(evt);
             }
         });
 
@@ -104,46 +166,93 @@ public class FuncionariosTela extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(txtCPF)
-                    .addComponent(txtNome)
-                    .addComponent(txtTelefone)
-                    .addComponent(txtUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 299, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                    .addComponent(txtSenha)
-                    .addComponent(txtTipoUser))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(btnAdicionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(308, 308, 308)
+                .addComponent(lblTitulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblID)
+                            .addComponent(lblCPF)
+                            .addComponent(lblNome)
+                            .addComponent(lblTelefone)
+                            .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(61, 61, 61)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(txtCPF)
+                            .addComponent(txtNome)
+                            .addComponent(txtTelefone)
+                            .addComponent(txtUsuario))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(lblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(78, 78, 78))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(lblGenero)
+                                        .addGap(46, 46, 46))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(lblTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(62, 62, 62)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtGenero)
+                                    .addComponent(txtTipoUser)
+                                    .addComponent(psSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnAdicionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAdicionarFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                                .addComponent(btnAdicionarFuncionario3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addContainerGap()
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblID)
+                    .addComponent(lblSenha)
+                    .addComponent(psSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCPF)
+                    .addComponent(lblGenero))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNome)
+                    .addComponent(lblTipoUser))
                 .addGap(18, 18, 18)
-                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTelefone))
                 .addGap(18, 18, 18)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
-                .addComponent(btnAdicionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUsuario)
+                    .addComponent(btnAdicionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdicionarFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdicionarFuncionario3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -166,10 +275,6 @@ public class FuncionariosTela extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
-    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaActionPerformed
-
     private void txtGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGeneroActionPerformed
@@ -186,7 +291,7 @@ public class FuncionariosTela extends javax.swing.JFrame {
           funcionario.setNome(txtNome.getText());
           funcionario.setTelefone(Integer.parseInt(txtTelefone.getText()));
           funcionario.setUsuario(txtUsuario.getText());
-          funcionario.setSenha(txtSenha.getText());
+          funcionario.setSenha(psSenha.getText());
           funcionario.setFK1_Sexo(Integer.parseInt(txtGenero.getText()));
           funcionario.setTipo_User(Integer.parseInt(txtTipoUser.getText()));
           
@@ -194,6 +299,74 @@ public class FuncionariosTela extends javax.swing.JFrame {
           funcionariosDao.inserir(funcionario);
     }//GEN-LAST:event_btnAdicionarFuncionarioActionPerformed
 
+    private void btnAdicionarFuncionario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFuncionario1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdicionarFuncionario1ActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+          
+        Funcionarios funcionario = new Funcionarios();
+          funcionario.setID_funcionario(Integer.parseInt(txtID.getText()));
+          funcionario.setCPF(Integer.parseInt(txtCPF.getText()));
+          funcionario.setNome(txtNome.getText());
+          funcionario.setTelefone(Integer.parseInt(txtTelefone.getText()));
+          funcionario.setUsuario(txtUsuario.getText());
+          funcionario.setSenha(psSenha.getText());
+          funcionario.setFK1_Sexo(Integer.parseInt(txtGenero.getText()));
+          funcionario.setTipo_User(Integer.parseInt(txtTipoUser.getText()));
+          FuncionariosDao funcionariosDao = new FuncionariosDao();
+          funcionariosDao.alterar(funcionario);
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void psSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_psSenhaActionPerformed
+
+    private void btnAdicionarFuncionario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFuncionario3ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnAdicionarFuncionario3ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        FuncionariosDao funcionariosDao = new FuncionariosDao();
+        atualizaTabela(funcionariosDao);
+        
+        
+    }//GEN-LAST:event_formWindowOpened
+private void atualizaTabela(FuncionariosDao funcionariosDao)
+    {
+        new Thread(){
+           @Override public void run(){
+
+                try
+                {
+
+
+                   // limparTabela();
+
+                    ArrayList<Funcionarios> listaCadastros;
+                    listaCadastros = funcionariosDao.consultar(); //consulta todos os registros da tabela Escola
+
+                    //Resgata o modelo da tabela            
+                    DefaultTableModel modeloTabela = (DefaultTableModel) Tb01.getModel();
+
+                    for(Funcionarios funcionarios : listaCadastros)
+                    {
+                        //adiciona em cada linha da tabela da tela o conteúdo de cada posição da listaEscolas
+                        modeloTabela.addRow(new String[]{Integer.toString(funcionarios.getID_funcionario()), 
+                                                                          funcionarios.getNome(), 
+                                                                          Integer.parseInt(funcionarios.getCPF()), 
+                                                                          funcionarios.getNomeSexo(),
+                                                                          funcionarios.getEmail()});
+                    }
+
+                }
+                catch(Exception ex)
+                {
+                    JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado:\n" + ex.getMessage(), "ERRO!", ERROR_MESSAGE);
+                }
+           }
+        }.start();   
+    }
     /**
      * @param args the command line arguments
      */
@@ -232,11 +405,25 @@ public class FuncionariosTela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionarFuncionario;
+    private javax.swing.JButton btnAdicionarFuncionario1;
+    private javax.swing.JButton btnAdicionarFuncionario3;
+    private javax.swing.JButton btnAlterar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblCPF;
+    private javax.swing.JLabel lblGenero;
+    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblSenha;
+    private javax.swing.JLabel lblTelefone;
+    private javax.swing.JLabel lblTipoUser;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblUsuario;
+    private javax.swing.JPasswordField psSenha;
     private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtSenha;
     private javax.swing.JTextField txtTelefone;
     private javax.swing.JTextField txtTipoUser;
     private javax.swing.JTextField txtUsuario;

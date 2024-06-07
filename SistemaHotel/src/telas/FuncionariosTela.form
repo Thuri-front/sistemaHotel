@@ -8,6 +8,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -23,127 +26,300 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="txtID" alignment="0" pref="100" max="32767" attributes="0"/>
-                  <Component id="txtCPF" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtNome" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtTelefone" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtUsuario" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace pref="299" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="txtGenero" pref="143" max="32767" attributes="0"/>
-                  <Component id="txtSenha" max="32767" attributes="0"/>
-                  <Component id="txtTipoUser" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="308" max="-2" attributes="0"/>
+              <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblID" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCPF" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNome" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTelefone" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUsuario" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtID" alignment="0" pref="100" max="32767" attributes="0"/>
+                          <Component id="txtCPF" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNome" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtTelefone" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtUsuario" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblSenha" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblGenero" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblTipoUser" min="-2" pref="88" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtGenero" max="32767" attributes="0"/>
+                                  <Component id="txtTipoUser" max="32767" attributes="0"/>
+                                  <Component id="psSenha" pref="143" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnAdicionarFuncionario" min="-2" pref="97" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnAdicionarFuncionario1" min="-2" pref="97" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnAlterar" min="-2" pref="97" max="-2" attributes="0"/>
+                              <EmptySpace pref="12" max="32767" attributes="0"/>
+                              <Component id="btnAdicionarFuncionario3" min="-2" pref="97" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
-              <Component id="btnAdicionarFuncionario" min="-2" pref="309" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblTitulo" min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtSenha" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSenha" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="psSenha" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtCPF" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtGenero" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCPF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblGenero" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtTipoUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTipoUser" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="txtTelefone" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="txtUsuario" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-              <Component id="btnAdicionarFuncionario" min="-2" pref="123" max="-2" attributes="0"/>
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAdicionarFuncionario" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btnAdicionarFuncionario1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btnAlterar" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btnAdicionarFuncionario3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="229" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="txtID">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ID"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIDActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCPF">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="CPF"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCPFActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNome">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nome"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTelefone">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Telefone"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelefoneActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtUsuario">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Usuario"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUsuarioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtSenha">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Senha"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSenhaActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="txtGenero">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Genero"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGeneroActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTipoUser">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo User"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTipoUserActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAdicionarFuncionario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Adicionar Funcionario"/>
+        <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarFuncionarioActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID Funcionario:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCPF">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CPF Funcionario:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNome">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nome Funcionario:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTelefone">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Telefone Funcionario:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblUsuario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nome de Usuario:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSenha">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Senha:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblGenero">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Genero Funcionario:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTipoUser">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tipo de User:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAdicionarFuncionario1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Remover"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarFuncionario1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAlterar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alterar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTitulo">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="2"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Funcionarios"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="psSenha">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="psSenhaActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTable1">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="7" rowCount="0">
+                <Column editable="true" title="ID Funcionarios" type="java.lang.Object"/>
+                <Column editable="true" title="CPF Funcionarios" type="java.lang.Object"/>
+                <Column editable="true" title="Nome Funcionarios" type="java.lang.Object"/>
+                <Column editable="true" title="Telefone Funcionarios" type="java.lang.Object"/>
+                <Column editable="true" title="Usuarios" type="java.lang.Object"/>
+                <Column editable="true" title="Genero Funcionarios" type="java.lang.Object"/>
+                <Column editable="true" title="Tipo de User" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="btnAdicionarFuncionario3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sair"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarFuncionario3ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
