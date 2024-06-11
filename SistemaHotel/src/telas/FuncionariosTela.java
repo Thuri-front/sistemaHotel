@@ -344,7 +344,7 @@ private void atualizaTabela(FuncionariosDao funcionariosDao)
                 {
 
 
-                   // limparTabela();
+                    //limparTabela();
 
                     ArrayList<Funcionarios> listaCadastros;
                     listaCadastros = funcionariosDao.consultar(); //consulta todos os registros da tabela Escola
