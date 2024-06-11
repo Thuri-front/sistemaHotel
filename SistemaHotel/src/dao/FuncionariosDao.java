@@ -16,11 +16,11 @@ import model.Funcionarios;
 
 public class FuncionariosDao implements DaoGenerica<Funcionarios>{
 
-    private ConexaoBanco conexao;
+    private conexaoBanco conexao;
     
     public FuncionariosDao()
     {
-        this.conexao = new ConexaoBanco();
+        this.conexao = new conexaoBanco();
     }
     
     @Override
