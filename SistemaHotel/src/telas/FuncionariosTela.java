@@ -52,10 +52,10 @@ public class FuncionariosTela extends javax.swing.JFrame {
         btnAdicionarFuncionario1 = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
-        psSenha = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFuncionarios = new javax.swing.JTable();
         btnAdicionarFuncionario3 = new javax.swing.JButton();
+        txtSenha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -140,12 +140,6 @@ public class FuncionariosTela extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         lblTitulo.setText("Funcionarios");
 
-        psSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                psSenhaActionPerformed(evt);
-            }
-        });
-
         tblFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -160,6 +154,12 @@ public class FuncionariosTela extends javax.swing.JFrame {
         btnAdicionarFuncionario3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionarFuncionario3ActionPerformed(evt);
+            }
+        });
+
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaActionPerformed(evt);
             }
         });
 
@@ -203,16 +203,16 @@ public class FuncionariosTela extends javax.swing.JFrame {
                                         .addComponent(lblTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(62, 62, 62)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtGenero)
+                                    .addComponent(txtGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                                     .addComponent(txtTipoUser)
-                                    .addComponent(psSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)))
+                                    .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnAdicionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnAdicionarFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                                 .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnAdicionarFuncionario3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -227,7 +227,7 @@ public class FuncionariosTela extends javax.swing.JFrame {
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblID)
                     .addComponent(lblSenha)
-                    .addComponent(psSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,14 +288,14 @@ public class FuncionariosTela extends javax.swing.JFrame {
 
     private void btnAdicionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFuncionarioActionPerformed
         // TODO add your handling code here:
-        Funcionarios funcionario =  new Funcionarios(); 
+          Funcionarios funcionario =  new Funcionarios(); 
           funcionario.setID_funcionario(Integer.parseInt(txtID.getText()));
-          funcionario.setCPF(Integer.parseInt(txtCPF.getText()));
+          funcionario.setCPF(txtCPF.getText());
           funcionario.setNome(txtNome.getText());
-          funcionario.setTelefone(Integer.parseInt(txtTelefone.getText()));
+          funcionario.setTelefone(txtTelefone.getText());
           funcionario.setUsuario(txtUsuario.getText());
-          funcionario.setSenha(psSenha.getText());
-          funcionario.setFK1_Sexo(Integer.parseInt(txtGenero.getText()));
+          funcionario.setSenha(txtSenha.getText());
+          funcionario.setFK1_Sexo(txtGenero.getText());
           funcionario.setTipo_User(Integer.parseInt(txtTipoUser.getText()));
           
           FuncionariosDao funcionariosDao = new FuncionariosDao();
@@ -310,20 +310,16 @@ public class FuncionariosTela extends javax.swing.JFrame {
           
         Funcionarios funcionario = new Funcionarios();
           funcionario.setID_funcionario(Integer.parseInt(txtID.getText()));
-          funcionario.setCPF(Integer.parseInt(txtCPF.getText()));
+          funcionario.setCPF(txtCPF.getText());
           funcionario.setNome(txtNome.getText());
-          funcionario.setTelefone(Integer.parseInt(txtTelefone.getText()));
+          funcionario.setTelefone(txtTelefone.getText());
           funcionario.setUsuario(txtUsuario.getText());
-          funcionario.setSenha(psSenha.getText());
-          funcionario.setFK1_Sexo(Integer.parseInt(txtGenero.getText()));
+          funcionario.setSenha(txtSenha.getText());
+          funcionario.setFK1_Sexo(txtGenero.getText());
           funcionario.setTipo_User(Integer.parseInt(txtTipoUser.getText()));
           FuncionariosDao funcionariosDao = new FuncionariosDao();
           funcionariosDao.alterar(funcionario);
     }//GEN-LAST:event_btnAlterarActionPerformed
-
-    private void psSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_psSenhaActionPerformed
 
     private void btnAdicionarFuncionario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFuncionario3ActionPerformed
         System.exit(0);
@@ -335,6 +331,10 @@ public class FuncionariosTela extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaActionPerformed
 private void atualizaTabela(FuncionariosDao funcionariosDao)
     {
         new Thread(){
@@ -426,12 +426,12 @@ private void atualizaTabela(FuncionariosDao funcionariosDao)
     private javax.swing.JLabel lblTipoUser;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JPasswordField psSenha;
     private javax.swing.JTable tblFuncionarios;
     private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtSenha;
     private javax.swing.JTextField txtTelefone;
     private javax.swing.JTextField txtTipoUser;
     private javax.swing.JTextField txtUsuario;

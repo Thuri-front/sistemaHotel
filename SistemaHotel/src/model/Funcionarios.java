@@ -10,19 +10,19 @@ package model;
  */
 public class Funcionarios {
     private int ID_funcionario;
-    private int CPF;
+    private String CPF;
     private String Nome;
-    private int Telefone;
+    private String Telefone;
     private String Usuario;
     private String Senha;
-    private int FK1_Sexo;
+    private String FK1_Sexo;
     private int Tipo_User;
     
     public Funcionarios(){
   
     };
     
-    public Funcionarios(int CPF, String Nome, int Telefone, String Usuario, String Senha, int FK1_Sexo, int Tipo_User){
+    public Funcionarios(String CPF, String Nome, String Telefone, String Usuario, String Senha, String FK1_Sexo, int Tipo_User){
         this.CPF = CPF;
         this.Nome = Nome;
         this.Telefone = Telefone;
@@ -32,7 +32,7 @@ public class Funcionarios {
         this.Tipo_User = Tipo_User;
     };
     
-    public Funcionarios(int ID_Funcionario,int CPF, String Nome, int Telefone, String Usuario, String Senha, int FK1_Sexo, int Tipo_User){
+    public Funcionarios(int ID_Funcionario,String CPF, String Nome, String Telefone, String Usuario, String Senha, String FK1_Sexo, int Tipo_User){
         this.ID_funcionario = ID_Funcionario;
         this.CPF = CPF;
         this.Nome = Nome;
@@ -51,11 +51,11 @@ public class Funcionarios {
         this.ID_funcionario = ID_funcionario;
     }
 
-    public int getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(int CPF) {
+    public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 
@@ -67,11 +67,11 @@ public class Funcionarios {
         this.Nome = Nome;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return Telefone;
     }
 
-    public void setTelefone(int Telefone) {
+    public void setTelefone(String Telefone) {
         this.Telefone = Telefone;
     }
 
@@ -91,11 +91,11 @@ public class Funcionarios {
         this.Senha = Senha;
     }
 
-    public int getFK1_Sexo() {
+    public String getFK1_Sexo() {
         return FK1_Sexo;
     }
 
-    public void setFK1_Sexo(int FK1_Sexo) {
+    public void setFK1_Sexo(String FK1_Sexo) {
         this.FK1_Sexo = FK1_Sexo;
     }
     

@@ -69,18 +69,18 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtGenero" max="32767" attributes="0"/>
+                                  <Component id="txtGenero" pref="143" max="32767" attributes="0"/>
                                   <Component id="txtTipoUser" max="32767" attributes="0"/>
-                                  <Component id="psSenha" pref="143" max="32767" attributes="0"/>
+                                  <Component id="txtSenha" alignment="1" pref="143" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnAdicionarFuncionario" min="-2" pref="97" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnAdicionarFuncionario1" min="-2" pref="97" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace pref="18" max="32767" attributes="0"/>
                               <Component id="btnAlterar" min="-2" pref="97" max="-2" attributes="0"/>
-                              <EmptySpace pref="12" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btnAdicionarFuncionario3" min="-2" pref="97" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -101,7 +101,7 @@
                   <Component id="txtID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblSenha" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="psSenha" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSenha" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -245,11 +245,6 @@
         <Property name="text" type="java.lang.String" value="Funcionarios"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="psSenha">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="psSenhaActionPerformed"/>
-      </Events>
-    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -322,6 +317,11 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarFuncionario3ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSenha">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSenhaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

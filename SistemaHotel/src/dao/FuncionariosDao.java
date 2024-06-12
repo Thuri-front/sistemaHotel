@@ -26,7 +26,7 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
     @Override
     public void inserir(Funcionarios funcionarios) {
         //string com a consulta que será executada no banco
-        String sql = "INSERT INTO Funcionarios (CPF, Nome, Telefone, Usuario, Senha, FK1_Sexo) VALUES (?,?,?,?,?(select ID_Genero from Genero where Tipo_Genero = ?),?)";
+        String sql = "INSERT INTO Funcionarios (ID_Funcionario, CPF, Nome, Telefone, Usuario, Senha, FK1_Sexo, Tipo_User) VALUES (?,?,?,?,?,?(select ID_Genero from Genero where Tipo_Genero = ?),?)";
         
         try
         {
@@ -37,12 +37,13 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
                 PreparedStatement sentenca = this.conexao.getConnection().prepareStatement(sql);
                 
                 //subtitui as interrograções da consulta, pelo valor específico
-                sentenca.setInt(2,funcionarios.getCPF());
+                sentenca.setInt(1,funcionarios.getID_funcionario());
+                sentenca.setString(2,funcionarios.getCPF());
                 sentenca.setString(3,funcionarios.getNome()); 
-                sentenca.setInt(4,funcionarios.getTelefone());
+                sentenca.setString(4,funcionarios.getTelefone());
                 sentenca.setString(5,funcionarios.getUsuario());
                 sentenca.setString(6,funcionarios.getSenha());
-                sentenca.setInt(7,funcionarios.getFK1_Sexo()); 
+                sentenca.setString(7,funcionarios.getFK1_Sexo()); 
                 sentenca.setInt(8,funcionarios.getTipo_User());
                 sentenca.execute(); //executa o comando no banco
                 sentenca.close(); //fecha a sentença
@@ -66,12 +67,12 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
                 PreparedStatement sentenca = this.conexao.getConnection().prepareStatement(sql);
                 
                 sentenca.setInt(1,funcionarios.getID_funcionario());
-                sentenca.setInt(2,funcionarios.getCPF());
+                sentenca.setString(2,funcionarios.getCPF());
                 sentenca.setString(3,funcionarios.getNome());
-                sentenca.setInt(4,funcionarios.getTelefone());
+                sentenca.setString(4,funcionarios.getTelefone());
                 sentenca.setString(5,funcionarios.getUsuario());
                 sentenca.setString(6, funcionarios.getSenha());
-                sentenca.setInt(7, funcionarios.getFK1_Sexo());
+                sentenca.setString(7, funcionarios.getFK1_Sexo());
                 sentenca.setInt(8, funcionarios.getTipo_User());
                 sentenca.execute();
                 sentenca.close();
@@ -151,11 +152,11 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
                     //resgata o valor de cada linha, selecionando pelo nome de cada coluna da tabela Escola
                     Funcionarios funcionario = new Funcionarios();
                     funcionario.setID_funcionario(resultadoSentenca.getInt("ID_Funcionario"));
-                    funcionario.setCPF(resultadoSentenca.getInt("CPF"));
+                    funcionario.setCPF(resultadoSentenca.getString("CPF"));
                     funcionario.setNome(resultadoSentenca.getString("Nome"));
-                    funcionario.setTelefone(resultadoSentenca.getInt("Telefone"));
+                    funcionario.setTelefone(resultadoSentenca.getString("Telefone"));
                     funcionario.setUsuario(resultadoSentenca.getString("Usuario"));
-                    funcionario.setFK1_Sexo(resultadoSentenca.getInt("FK1_Sexo"));
+                    funcionario.setFK1_Sexo(resultadoSentenca.getString("FK1_Sexo"));
                     funcionario.setTipo_User(resultadoSentenca.getInt("Tipo_User"));
                     listaFuncionarios.add(funcionario);
                 }
@@ -196,11 +197,11 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
                     //resgata o valor de cada linha, selecionando pelo nome de cada coluna da tabela Escola
                     Funcionarios funcionario = new Funcionarios();
                     funcionario.setID_funcionario(resultadoSentenca.getInt("ID_Funcionario"));
-                    funcionario.setCPF(resultadoSentenca.getInt("CPF"));
+                    funcionario.setCPF(resultadoSentenca.getString("CPF"));
                     funcionario.setNome(resultadoSentenca.getString("Nome"));
-                    funcionario.setTelefone(resultadoSentenca.getInt("Telefone"));
+                    funcionario.setTelefone(resultadoSentenca.getString("Telefone"));
                     funcionario.setUsuario(resultadoSentenca.getString("Usuario"));
-                    funcionario.setFK1_Sexo(resultadoSentenca.getInt("FK1_Sexo"));
+                    funcionario.setFK1_Sexo(resultadoSentenca.getString("FK1_Sexo"));
                     funcionario.setTipo_User(resultadoSentenca.getInt("Tipo_User"));
                     
                     listaFuncionariosStr.add(funcionario);
