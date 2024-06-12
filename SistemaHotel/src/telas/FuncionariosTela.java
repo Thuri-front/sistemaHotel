@@ -54,7 +54,7 @@ public class FuncionariosTela extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         psSenha = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblFuncionarios = new javax.swing.JTable();
         btnAdicionarFuncionario3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -146,7 +146,7 @@ public class FuncionariosTela extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -154,7 +154,7 @@ public class FuncionariosTela extends javax.swing.JFrame {
                 "ID Funcionarios", "CPF Funcionarios", "Nome Funcionarios", "Telefone Funcionarios", "Usuarios", "Genero Funcionarios", "Tipo de User"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblFuncionarios);
 
         btnAdicionarFuncionario3.setText("Sair");
         btnAdicionarFuncionario3.addActionListener(new java.awt.event.ActionListener() {
@@ -344,22 +344,26 @@ private void atualizaTabela(FuncionariosDao funcionariosDao)
                 {
 
 
-                    //limparTabela();
+                    //limparTabela
+                    ((DefaultTableModel) tblFuncionarios.getModel()).setRowCount(0);
 
                     ArrayList<Funcionarios> listaCadastros;
                     listaCadastros = funcionariosDao.consultar(); //consulta todos os registros da tabela Escola
 
                     //Resgata o modelo da tabela            
-                    DefaultTableModel modeloTabela = (DefaultTableModel) Tb01.getModel();
+                    DefaultTableModel modeloTabela = (DefaultTableModel) tblFuncionarios.getModel();
 
                     for(Funcionarios funcionarios : listaCadastros)
                     {
                         //adiciona em cada linha da tabela da tela o conteúdo de cada posição da listaEscolas
-                        modeloTabela.addRow(new String[]{Integer.toString(funcionarios.getID_funcionario()), 
-                                                                          funcionarios.getNome(), 
-                                                                          Integer.parseInt(funcionarios.getCPF()), 
-                                                                          funcionarios.getNomeSexo(),
-                                                                          funcionarios.getEmail()});
+                        modeloTabela.addRow(new Object[]{
+                        funcionarios.getID_funcionario(),
+                        funcionarios.getCPF(),
+                        funcionarios.getNome(),
+                        funcionarios.getTelefone(),
+                        funcionarios.getUsuario(),
+                        funcionarios.getFK1_Sexo(),
+                        funcionarios.getTipo_User()});
                     }
 
                 }
@@ -413,7 +417,6 @@ private void atualizaTabela(FuncionariosDao funcionariosDao)
     private javax.swing.JButton btnAdicionarFuncionario3;
     private javax.swing.JButton btnAlterar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblGenero;
     private javax.swing.JLabel lblID;
@@ -424,6 +427,7 @@ private void atualizaTabela(FuncionariosDao funcionariosDao)
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JPasswordField psSenha;
+    private javax.swing.JTable tblFuncionarios;
     private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtID;
