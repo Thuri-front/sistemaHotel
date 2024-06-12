@@ -129,7 +129,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
-            new dao.ConexaoBanco().conectar();
+            new dao.conexaoBanco().conectar();
             JOptionPane.showMessageDialog(null, "Banco de dados conectado");
         }catch(Exception ex)
         {
