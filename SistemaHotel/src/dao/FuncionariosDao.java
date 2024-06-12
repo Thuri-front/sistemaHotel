@@ -26,7 +26,7 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
     @Override
     public void inserir(Funcionarios funcionarios) {
         //string com a consulta que será executada no banco
-        String sql = "INSERT INTO Funcionarios (ID_Funcionario, CPF, Nome, Telefone, Usuario, Senha, FK1_Sexo, Tipo_User) VALUES (?,?,?,?,?,?(select ID_Genero from Genero where Tipo_Genero = ?),?)";
+        String sql = "INSERT INTO Funcionario (ID_Funcionario, CPF, Nome, Telefone, Usuario, Senha, FK1_Sexo, Tipo_User) VALUES (?,?,?,?,?,?,(select ID_Genero from Genero where Tipo_Genero = ?),?)";
         
         try
         {
