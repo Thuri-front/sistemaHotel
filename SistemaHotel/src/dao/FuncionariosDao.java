@@ -58,7 +58,7 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
 
     @Override
     public void alterar(Funcionarios funcionarios) {
-        String sql = "UPDATE Funcionarios SET ID_Funcionario = ?, cpf = ?, idsexo = (select idsexo from cadsexo where nomesexo = ?), email = ?, foto = ? where idcad = ?";
+        String sql = "UPDATE Funcionario SET ID_Funcionario = ?, CPF = ?, Nome = ?, Telefone = ?, Usuario = ?, Senha = ?, FK1_Sexo = (select ID_Genero from Genero where Tipo_Genero = ?), Tipo_User = ?";
         
         try
         {
