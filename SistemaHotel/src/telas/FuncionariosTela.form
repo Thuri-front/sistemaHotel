@@ -50,10 +50,9 @@
                           <Component id="txtTelefone" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtUsuario" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" pref="121" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="lblSenha" min="-2" pref="72" max="-2" attributes="0"/>
@@ -74,13 +73,11 @@
                                   <Component id="txtSenha" alignment="1" pref="143" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="btnAdicionarFuncionario" min="-2" pref="97" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnAdicionarFuncionario1" min="-2" pref="97" max="-2" attributes="0"/>
-                              <EmptySpace pref="18" max="32767" attributes="0"/>
-                              <Component id="btnAlterar" min="-2" pref="97" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnAdicionarFuncionario3" min="-2" pref="97" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -130,7 +127,6 @@
                   <Component id="lblUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAdicionarFuncionario" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="btnAdicionarFuncionario1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="btnAlterar" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="btnAdicionarFuncionario3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -227,14 +223,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarFuncionario1ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnAlterar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Alterar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTitulo">
