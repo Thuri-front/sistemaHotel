@@ -16,7 +16,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
         
-        setExtendedState(MAXIMIZED_BOTH);
+       // setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -49,6 +49,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuReservas = new javax.swing.JMenu();
         menuCadReserva = new javax.swing.JMenuItem();
@@ -106,8 +108,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
+        jMenu11 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telas/1666647919423.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -119,11 +123,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/GzaW3YMjL3RBvN2b.png"))); // NOI18N
         jLabel3.setText("jLabel3");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 90, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 90, -1));
 
         jLabel4.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
         jLabel4.setText("Host Manager");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 20));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 20));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
         jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 250, 10));
         jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, 250, 10));
@@ -132,36 +136,47 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
         jLabel5.setText("Horario do sistema");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 250, 10));
 
         jLabel6.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
         jLabel6.setText("Grau de acesso:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
         jLabel7.setText("Cargo:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
         jLabel8.setText("Texto");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
         jLabel9.setText("Usuario:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
         jLabel10.setText("Nome");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
         jLabel11.setText("Texto");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
         jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 220, 250, 10));
 
+        jCalendar1.setWeekOfYearVisible(false);
+        jPanel2.add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 240, 230));
+
+        jButton1.setText("Desconectar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, 30));
+
         MenuReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/hotel_bell_doorbell_hotel_reception_icon_196778.png"))); // NOI18N
-        MenuReservas.setText("Reservas   |");
+        MenuReservas.setText("Reservas   |      ");
 
         menuCadReserva.setText("Cadastrar Reserva");
         MenuReservas.add(menuCadReserva);
@@ -180,7 +195,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MenuReservas);
 
         MenuConsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cashier_machine_cash_register_pos_icon_225201.png"))); // NOI18N
-        MenuConsumo.setText("Vendas   |");
+        MenuConsumo.setText("Vendas   |      ");
 
         menuVenProduto.setText("Produtos");
         MenuConsumo.add(menuVenProduto);
@@ -191,7 +206,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MenuConsumo);
 
         jmenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/signupsign_inscribirs_2798.png"))); // NOI18N
-        jmenu1.setText("Cadastros   |");
+        jmenu1.setText("Cadastros   |      ");
 
         jMenu9.setText("Hospedes");
 
@@ -276,7 +291,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jmenu1);
 
         MenuRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/5_icon-icons.com_68890.png"))); // NOI18N
-        MenuRelatorios.setText("Relatorios   |");
+        MenuRelatorios.setText("Relatorios   |      ");
 
         Financeiro.setText("Financeiro");
 
@@ -324,7 +339,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MenuRelatorios);
 
         MenuFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/coin_money_icon-icons.com_51091.png"))); // NOI18N
-        MenuFinanceiro.setText("Financeiro   |");
+        MenuFinanceiro.setText("Financeiro   |      ");
 
         jMenu4.setText("Contas a Pagar");
 
@@ -352,7 +367,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MenuFinanceiro);
 
         MenuFerramentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/3668850-insurance-protection-safety-shield_108037.png"))); // NOI18N
-        MenuFerramentas.setText("Seguranca   |");
+        MenuFerramentas.setText("Seguranca   |      ");
 
         jMenuItem11.setText("Fazer Backup");
         MenuFerramentas.add(jMenuItem11);
@@ -363,7 +378,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MenuFerramentas);
 
         MenuFerraments.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/3592847-general-office-repair-repair-tool-screwdriver-tools-wrench_107766.png"))); // NOI18N
-        MenuFerraments.setText("Ferramentas   |");
+        MenuFerraments.setText("Ferramentas   |      ");
 
         jMenuItem13.setText("Sobre o Sistema");
         MenuFerraments.add(jMenuItem13);
@@ -383,6 +398,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuFerraments);
 
+        jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/4115235-exit-logout-sign-out_114030.png"))); // NOI18N
+        jMenu11.setText("Sair");
+        jMenuBar1.add(jMenu11);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -391,13 +410,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(115, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(239, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2))
         );
         layout.setVerticalGroup(
@@ -438,6 +457,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -482,6 +506,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu MenuFinanceiro;
     private javax.swing.JMenu MenuRelatorios;
     private javax.swing.JMenu MenuReservas;
+    private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -495,6 +521,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
