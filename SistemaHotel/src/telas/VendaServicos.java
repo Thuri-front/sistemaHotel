@@ -180,7 +180,7 @@ public class VendaServicos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtServicoActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void txtIDServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDServicoActionPerformed

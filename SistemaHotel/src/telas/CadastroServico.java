@@ -58,6 +58,11 @@ public class CadastroServico extends javax.swing.JFrame {
         lblIDServico.setText("ID do Serviço:");
 
         jButton3.setText("Sair");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         lblNomeServico.setText("Nome do Serviço:");
 
@@ -125,6 +130,10 @@ public class CadastroServico extends javax.swing.JFrame {
     private void txtNomeServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeServicoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeServicoActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -255,7 +255,7 @@ public class AlterarFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdicionarFuncionario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFuncionario3ActionPerformed
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_btnAdicionarFuncionario3ActionPerformed
 
     private void txtIDAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDAlterarActionPerformed

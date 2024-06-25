@@ -170,7 +170,7 @@ public class VendaProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIDProdutoActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        // TODO add your handling code here:
+       this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     /**

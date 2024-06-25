@@ -295,7 +295,7 @@ public class FuncionariosTela extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdicionarFuncionario1ActionPerformed
 
     private void btnAdicionarFuncionario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFuncionario3ActionPerformed
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_btnAdicionarFuncionario3ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
