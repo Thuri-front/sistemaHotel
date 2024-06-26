@@ -6,7 +6,7 @@ package com.mycompany.telaprincipalpetcode;
 
 /**
  *
- * @author Lucas
+ * @author Lucas l
  */
 public class telaPrincipal extends javax.swing.JFrame {
 
