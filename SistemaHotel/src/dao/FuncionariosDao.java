@@ -5,6 +5,7 @@
  */
 package dao;
 
+import com.mysql.cj.xdevapi.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -256,5 +257,19 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
            throw new RuntimeException(ex);
         }
     }
+    /*public static ResultSet ListarTabla(String consulta){
+        
+        conexaoBanco cn = conexao.conectar();
+        Statement sql;
+        ResultSet datos = null;
+        try{
+            sql=cn.createStatement()
+            datos =sql.executeQuery(consulta)
+            
+        }
+        } catch(Exception e){
+            System.out.println("error");   
+        }
+    }*/
     
 }
