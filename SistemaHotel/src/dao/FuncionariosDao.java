@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import model.Funcionarios;
+import telas.TelaLogin;
+import telas.TelaPrincipal;
 
 
 public class FuncionariosDao implements DaoGenerica<Funcionarios>{
@@ -117,7 +119,6 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
         }
     }
 
-    @Override
     public void excluir() {
         String sql = "DELETE FROM ESCOLA";
         
@@ -139,7 +140,7 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
     }
     
     public void excluirID(int id) {
-        String sql = "DELETE FROM cadbasico WHERE idcad = ?";
+        String sql = "DELETE FROM Funcionario WHERE ID_Funcionario = ?";
         
         try
         {
@@ -159,6 +160,40 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
            throw new RuntimeException(ex);
         }
     }
+    
+    public void Login(String Usuario, String Senha) {
+        String sql = "SELECT * FROM Funcionario WHERE Usuario = ? AND Senha = ?";
+        
+        try
+        {
+            if(this.conexao.conectar())
+            {
+                PreparedStatement sentenca = this.conexao.getConnection().prepareStatement(sql);
+                
+                sentenca.setString(1, Usuario);
+                sentenca.setString(2, Senha);
+                ResultSet respuesta = sentenca.executeQuery();
+                if(respuesta.next()){
+                    JOptionPane.showMessageDialog(null, "Usuario encontrado");
+                    TelaPrincipal tela = new TelaPrincipal();
+                    tela.setVisible(true);
+                   /* TelaLogin telaLogin = new TelaLogin();
+                    telaLogin.setVisible(false);*/
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null, "Usuario Inexcistente");
+                    System.exit(0);
+                }
+                sentenca.close();
+                this.conexao.getConnection().close();
+            }
+        }
+        catch(SQLException ex)
+        {
+           throw new RuntimeException(ex);
+        }
+    }
+    
     
     @Override
     public ArrayList<Funcionarios> consultar() {

@@ -54,7 +54,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -165,9 +164,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel11.setText("Texto");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
         jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 220, 250, 10));
-
-        jCalendar1.setWeekOfYearVisible(false);
-        jPanel2.add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 240, 230));
 
         jButton1.setText("Desconectar");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -589,7 +585,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu MenuReservas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

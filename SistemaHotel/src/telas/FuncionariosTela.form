@@ -50,14 +50,16 @@
                           <Component id="txtTelefone" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtUsuario" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="127" max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
+                              <Component id="btnListar" min="-2" pref="97" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btnAdicionar" min="-2" pref="97" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnAdicionarFuncionario1" min="-2" pref="97" max="-2" attributes="0"/>
+                              <Component id="btnRemover" min="-2" pref="97" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnAdicionarFuncionario3" min="-2" pref="97" max="-2" attributes="0"/>
+                              <Component id="btnSair" min="-2" pref="97" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -126,8 +128,9 @@
                   <Component id="txtUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAdicionar" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="btnAdicionarFuncionario1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="btnAdicionarFuncionario3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btnRemover" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btnSair" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btnListar" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="229" max="-2" attributes="0"/>
@@ -217,12 +220,12 @@
         <Property name="text" type="java.lang.String" value="Tipo de User:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnAdicionarFuncionario1">
+    <Component class="javax.swing.JButton" name="btnRemover">
       <Properties>
         <Property name="text" type="java.lang.String" value="Remover"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarFuncionario1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTitulo">
@@ -299,17 +302,25 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnAdicionarFuncionario3">
+    <Component class="javax.swing.JButton" name="btnSair">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sair"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarFuncionario3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSairActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtSenha">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSenhaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnListar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Listar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

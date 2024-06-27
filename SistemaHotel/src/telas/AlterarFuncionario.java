@@ -41,36 +41,28 @@ public class AlterarFuncionario extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTitulo = new javax.swing.JLabel();
-        lblIDAlterar = new javax.swing.JLabel();
         lblCPF = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
-        txtIDAlterar = new javax.swing.JTextField();
         lblTelefone = new javax.swing.JLabel();
-        txtSenha = new javax.swing.JTextField();
         txtCPF = new javax.swing.JTextField();
         lblUsuario = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
-        lblSenha = new javax.swing.JLabel();
         txtTelefone = new javax.swing.JTextField();
-        lblGenero = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         lblTipoUser = new javax.swing.JLabel();
-        txtGenero = new javax.swing.JTextField();
         txtTipoUser = new javax.swing.JTextField();
         btnAlterar = new javax.swing.JButton();
-        txtIDAlterado = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
         lblIDAlterado = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFuncionarios = new javax.swing.JTable();
-        Listar = new javax.swing.JButton();
+        btnListar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         lblTitulo.setText("Alterar Funcionario");
-
-        lblIDAlterar.setText("ID Funcionario para alterar:");
 
         lblCPF.setText("CPF Funcionario:");
 
@@ -83,19 +75,7 @@ public class AlterarFuncionario extends javax.swing.JFrame {
             }
         });
 
-        txtIDAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDAlterarActionPerformed(evt);
-            }
-        });
-
         lblTelefone.setText("Telefone Funcionario:");
-
-        txtSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaActionPerformed(evt);
-            }
-        });
 
         txtCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,15 +85,11 @@ public class AlterarFuncionario extends javax.swing.JFrame {
 
         lblUsuario.setText("Nome de Usuario:");
 
-        lblSenha.setText("Senha:");
-
         txtTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefoneActionPerformed(evt);
             }
         });
-
-        lblGenero.setText("Genero Funcionario:");
 
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,12 +98,6 @@ public class AlterarFuncionario extends javax.swing.JFrame {
         });
 
         lblTipoUser.setText("Tipo de User:");
-
-        txtGenero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGeneroActionPerformed(evt);
-            }
-        });
 
         txtTipoUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,13 +112,13 @@ public class AlterarFuncionario extends javax.swing.JFrame {
             }
         });
 
-        txtIDAlterado.addActionListener(new java.awt.event.ActionListener() {
+        txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDAlteradoActionPerformed(evt);
+                txtIDActionPerformed(evt);
             }
         });
 
-        lblIDAlterado.setText("ID Alterado:");
+        lblIDAlterado.setText("ID Fixo:");
 
         tblFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -163,10 +133,10 @@ public class AlterarFuncionario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblFuncionarios);
 
-        Listar.setText("Listar");
-        Listar.addActionListener(new java.awt.event.ActionListener() {
+        btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListarActionPerformed(evt);
+                btnListarActionPerformed(evt);
             }
         });
 
@@ -184,41 +154,29 @@ public class AlterarFuncionario extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblIDAlterar)
                             .addComponent(lblCPF)
                             .addComponent(lblNome)
                             .addComponent(lblTelefone)
                             .addComponent(lblIDAlterado))
-                        .addGap(61, 61, 61)
+                        .addGap(89, 89, 89)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtIDAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(txtCPF)
+                            .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                             .addComponent(txtNome)
                             .addComponent(txtTelefone)
-                            .addComponent(txtIDAlterado))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(lblGenero)
-                                        .addGap(46, 46, 46))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(lblTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(62, 62, 62))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(48, 48, 48)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .addComponent(txtTipoUser)
-                                    .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)))
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(191, 191, 191))
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Listar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -232,48 +190,35 @@ public class AlterarFuncionario extends javax.swing.JFrame {
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIDAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIDAlterar)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUsuario))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblSenha)
-                                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblIDAlterado))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtIDAlterado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblCPF))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblNome))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTelefone)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblGenero))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTipoUser)))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIDAlterado)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCPF))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNome))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTelefone)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTipoUser)
+                            .addComponent(txtTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(89, 89, 89)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Listar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -335,14 +280,6 @@ public class AlterarFuncionario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
-    private void txtIDAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDAlterarActionPerformed
-
-    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaActionPerformed
-
     private void txtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCPFActionPerformed
@@ -355,16 +292,12 @@ public class AlterarFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
-    private void txtGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGeneroActionPerformed
-
     private void txtTipoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTipoUserActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        int fila = tblFuncionarios.getSelectedRow();
+        /*int fila = tblFuncionarios.getSelectedRow();
         Funcionarios funcionario = new Funcionarios();
         funcionario.setID_funcionario(Integer.parseInt(tblFuncionarios.getValueAt(fila, 0).toString()));
         funcionario.setCPF(tblFuncionarios.getValueAt(fila, 1).toString());
@@ -373,16 +306,25 @@ public class AlterarFuncionario extends javax.swing.JFrame {
         funcionario.setUsuario( tblFuncionarios.getValueAt(fila, 4).toString());
         funcionario.setTipo_User(Integer.parseInt( tblFuncionarios.getValueAt(fila, 5).toString()));
         FuncionariosDao funcionariosDao = new FuncionariosDao();
+        funcionariosDao.alterar(funcionario);*/
+        Funcionarios funcionario = new Funcionarios();
+        funcionario.setID_funcionario(Integer.parseInt(txtID.getText()));
+        funcionario.setCPF(txtCPF.getText());
+        funcionario.setNome(txtNome.getText());
+        funcionario.setTelefone(txtTelefone.getText());
+        funcionario.setUsuario(txtUsuario.getText());
+        funcionario.setTipo_User(Integer.parseInt(txtTipoUser.getText()));
+        FuncionariosDao funcionariosDao = new FuncionariosDao();
         funcionariosDao.alterar(funcionario);
     }//GEN-LAST:event_btnAlterarActionPerformed
 
-    private void txtIDAlteradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDAlteradoActionPerformed
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDAlteradoActionPerformed
+    }//GEN-LAST:event_txtIDActionPerformed
 
-    private void ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarActionPerformed
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         listar();
-    }//GEN-LAST:event_ListarActionPerformed
+    }//GEN-LAST:event_btnListarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -422,27 +364,21 @@ public class AlterarFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Listar;
     private javax.swing.JButton btnAlterar;
+    private javax.swing.JButton btnListar;
     private javax.swing.JButton btnSair;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCPF;
-    private javax.swing.JLabel lblGenero;
     private javax.swing.JLabel lblIDAlterado;
-    private javax.swing.JLabel lblIDAlterar;
     private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblTelefone;
     private javax.swing.JLabel lblTipoUser;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JTable tblFuncionarios;
     private javax.swing.JTextField txtCPF;
-    private javax.swing.JTextField txtGenero;
-    private javax.swing.JTextField txtIDAlterado;
-    private javax.swing.JTextField txtIDAlterar;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtSenha;
     private javax.swing.JTextField txtTelefone;
     private javax.swing.JTextField txtTipoUser;
     private javax.swing.JTextField txtUsuario;

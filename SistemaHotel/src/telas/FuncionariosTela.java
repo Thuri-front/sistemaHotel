@@ -22,6 +22,7 @@ public class FuncionariosTela extends javax.swing.JFrame {
      */
     public FuncionariosTela() {
         initComponents();
+        listar();
     }
 
     /**
@@ -49,12 +50,13 @@ public class FuncionariosTela extends javax.swing.JFrame {
         lblSenha = new javax.swing.JLabel();
         lblGenero = new javax.swing.JLabel();
         lblTipoUser = new javax.swing.JLabel();
-        btnAdicionarFuncionario1 = new javax.swing.JButton();
+        btnRemover = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFuncionarios = new javax.swing.JTable();
-        btnAdicionarFuncionario3 = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         txtSenha = new javax.swing.JTextField();
+        btnListar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -122,10 +124,10 @@ public class FuncionariosTela extends javax.swing.JFrame {
 
         lblTipoUser.setText("Tipo de User:");
 
-        btnAdicionarFuncionario1.setText("Remover");
-        btnAdicionarFuncionario1.addActionListener(new java.awt.event.ActionListener() {
+        btnRemover.setText("Remover");
+        btnRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionarFuncionario1ActionPerformed(evt);
+                btnRemoverActionPerformed(evt);
             }
         });
 
@@ -142,16 +144,23 @@ public class FuncionariosTela extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblFuncionarios);
 
-        btnAdicionarFuncionario3.setText("Sair");
-        btnAdicionarFuncionario3.addActionListener(new java.awt.event.ActionListener() {
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionarFuncionario3ActionPerformed(evt);
+                btnSairActionPerformed(evt);
             }
         });
 
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSenhaActionPerformed(evt);
+            }
+        });
+
+        btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
             }
         });
 
@@ -180,14 +189,16 @@ public class FuncionariosTela extends javax.swing.JFrame {
                             .addComponent(txtNome)
                             .addComponent(txtTelefone)
                             .addComponent(txtUsuario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnAdicionarFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnAdicionarFuncionario3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -239,8 +250,9 @@ public class FuncionariosTela extends javax.swing.JFrame {
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUsuario)
                     .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdicionarFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdicionarFuncionario3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -250,6 +262,33 @@ public class FuncionariosTela extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void listar() {
+        DefaultTableModel model = (DefaultTableModel) tblFuncionarios.getModel();
+        model.setColumnCount(0);
+        model.addColumn("ID");
+        model.addColumn("CPF");
+        model.addColumn("Nome");
+        model.addColumn("Telefone");
+        model.addColumn("Usuario");
+        model.addColumn("Tipo Usuario");
+        model.setRowCount(0); // Limpiar la tabla antes de cargar nuevos datos
+
+        FuncionariosDao dao = new FuncionariosDao();
+        ArrayList<Funcionarios> funcionariosList = dao.dashboard();
+
+        for (Funcionarios funcionario : funcionariosList) {
+            model.addRow(new Object[]{
+                funcionario.getID_funcionario(),
+                funcionario.getCPF(),
+                funcionario.getNome(),
+                funcionario.getTelefone(),
+                funcionario.getUsuario(),
+                //funcionario.getFK1_Sexo(),
+                funcionario.getTipo_User()
+            });
+        }
+    }
+    
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
@@ -290,17 +329,21 @@ public class FuncionariosTela extends javax.swing.JFrame {
           funcionariosDao.inserir(funcionario);
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
-    private void btnAdicionarFuncionario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFuncionario1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdicionarFuncionario1ActionPerformed
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
+        
+        /*Funcionarios funcionario = new Funcionarios();
+        funcionario.setID_funcionario(Integer.parseInt(txtID.getText()));*/
+        FuncionariosDao funcionariosDao = new FuncionariosDao();
+        funcionariosDao.excluirID(Integer.parseInt(txtID.getText()));
 
-    private void btnAdicionarFuncionario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFuncionario3ActionPerformed
+    }//GEN-LAST:event_btnRemoverActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btnAdicionarFuncionario3ActionPerformed
+    }//GEN-LAST:event_btnSairActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        FuncionariosDao funcionariosDao = new FuncionariosDao();
-        atualizaTabela(funcionariosDao);
+        
         
         
     }//GEN-LAST:event_formWindowOpened
@@ -308,6 +351,18 @@ public class FuncionariosTela extends javax.swing.JFrame {
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
+
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        txtID.setText("");
+        txtCPF.setText("");
+        txtNome.setText("");
+        txtTelefone.setText("");
+        txtUsuario.setText("");
+        txtSenha.setText("");
+        txtGenero.setText("");
+        txtTipoUser.setText("");
+        listar();
+    }//GEN-LAST:event_btnListarActionPerformed
 private void atualizaTabela(FuncionariosDao funcionariosDao)
     {
         new Thread(){
@@ -386,8 +441,9 @@ private void atualizaTabela(FuncionariosDao funcionariosDao)
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
-    private javax.swing.JButton btnAdicionarFuncionario1;
-    private javax.swing.JButton btnAdicionarFuncionario3;
+    private javax.swing.JButton btnListar;
+    private javax.swing.JButton btnRemover;
+    private javax.swing.JButton btnSair;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblGenero;
