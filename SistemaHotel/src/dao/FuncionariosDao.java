@@ -6,6 +6,8 @@
 package dao;
 
 import com.mysql.cj.xdevapi.Statement;
+import com.sun.jdi.connect.spi.Connection;
+import java.awt.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,6 +26,35 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
         this.conexao = new conexaoBanco();
     }
     
+    /*public List<Funcionarios> listar(){
+        List<Funcionarios> listaFuncionarios = new ArrayList<>();
+        String sql = "Select ID_Funcionario, CPF, Nome, Telefone, Usuario,(select ID_Genero from Genero where Tipo_Genero = FK1_sexo), Tipo_User";
+        
+        try
+        {
+            if(this.conexao.conectar())
+            {PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Funcionarios funcionario = new Funcionarios();
+                funcionario.setID_funcionario(rs.getInt("ID_Funcionario"));
+                funcionario.setCPF(rs.getString("CPF"));
+                funcionario.setNome(rs.getString("Nome"));
+                funcionario.setTelefone(rs.getString("Telefone"));
+                funcionario.setUsuario(rs.getString("Usuario"));
+                funcionario.setFK1_Sexo(rs.getString("Genero"));
+                funcionario.setTipo_User(rs.getInt("Tipo_User"));
+
+                listaFuncionarios.add(funcionario);
+            }
+        }}
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaFuncionarios;
+    }*/
     @Override
     public void inserir(Funcionarios funcionarios) {
         //string com a consulta que será executada no banco
@@ -59,7 +90,7 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
 
     @Override
     public void alterar(Funcionarios funcionarios) {
-        String sql = "UPDATE Funcionario SET ID_Funcionario = ?, CPF = ?, Nome = ?, Telefone = ?, Usuario = ?, Senha = ?, FK1_Sexo = (select ID_Genero from Genero where Tipo_Genero = ?), Tipo_User = ?";
+        String sql = "UPDATE Funcionario SET CPF = ?, Nome = ?, Telefone = ?, Usuario = ?, Tipo_User = ? WHERE ID_Funcionario = ?";
         
         try
         {
@@ -67,14 +98,14 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
             {
                 PreparedStatement sentenca = this.conexao.getConnection().prepareStatement(sql);
                 
-                sentenca.setInt(1,funcionarios.getID_funcionario());
-                sentenca.setString(2,funcionarios.getCPF());
-                sentenca.setString(3,funcionarios.getNome());
-                sentenca.setString(4,funcionarios.getTelefone());
-                sentenca.setString(5,funcionarios.getUsuario());
-                sentenca.setString(6, funcionarios.getSenha());
-                sentenca.setString(7, funcionarios.getFK1_Sexo());
-                sentenca.setInt(8, funcionarios.getTipo_User());
+                sentenca.setInt(6,funcionarios.getID_funcionario());
+                sentenca.setString(1,funcionarios.getCPF());
+                sentenca.setString(2,funcionarios.getNome());
+                sentenca.setString(3,funcionarios.getTelefone());
+                sentenca.setString(4,funcionarios.getUsuario());
+                //sentenca.setString(6, funcionarios.getSenha());
+               // sentenca.setString(7, funcionarios.getFK1_Sexo());
+                sentenca.setInt(5, funcionarios.getTipo_User());
                 sentenca.execute();
                 sentenca.close();
                 this.conexao.getConnection().close();
@@ -219,12 +250,12 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
            throw new RuntimeException(ex);
         }
     }
+    
     public ArrayList<Funcionarios> dashboard() {
-        
         ArrayList<Funcionarios> ListarDashBoard = new ArrayList<Funcionarios>();
-//        String sql = "select count(idcad) as numcad, count(idcad)*2 as sumcad, (select count(idsexo)+100 from cadsexo) as numsexualidade from cadbasico;";
-        String sql = "select FLOOR(RAND()(10-5+1)*10) as numcad, FLOOR(RAND()(10-5+1)10) as sumcad, FLOOR(RAND()(10-5+1)*10) as numsexualidade";
-        
+        String sql = "SELECT ID_Funcionario,CPF,Nome,Telefone,Usuario,Tipo_User FROM Funcionario";//"SELECT c.ID_Funcionario, c.CPF, c.Nome, c.Telefone, c.Usuario, s.Tipo_Genero, c.Tipo_User " +
+                 //"FROM Funcionario c " +
+                // "LEFT JOIN Genero s ON c.FK1_Sexo = s.ID_Genero";
         try
         {
             if(this.conexao.conectar())
@@ -237,13 +268,16 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
                 //percorrer cada linha do resultado
                 while(resultadoSentenca.next()) 
                 {
-                    //resgata o valor de cada linha, selecionando pelo nome de cada coluna da tabela Escola
- //                   Cadastro cadastro = new Cadastro();
- //                   cadastro.setTotalCadastros(resultadoSentenca.getInt("numcad"));
- //                   cadastro.SetSomaCodigos(resultadoSentenca.getInt("sumcad"));
- //                   cadastro.SetNumSexualidade(resultadoSentenca.getInt("numsexualidade"));
-                    
- //                   ListarDashBoard.add(cadastro);
+                    Funcionarios funcionario = new Funcionarios();
+                    funcionario.setID_funcionario(resultadoSentenca.getInt("ID_Funcionario"));
+                    funcionario.setCPF(resultadoSentenca.getString("CPF"));
+                    funcionario.setNome(resultadoSentenca.getString("Nome"));
+                    funcionario.setTelefone(resultadoSentenca.getString("Telefone"));
+                    funcionario.setUsuario(resultadoSentenca.getString("Usuario"));
+                    //funcionario.setFK1_Sexo(resultadoSentenca.getString("FK1_Sexo"));
+                    funcionario.setTipo_User(resultadoSentenca.getInt("Tipo_User"));
+
+                    ListarDashBoard.add(funcionario);
                 }
 
                 sentenca.close();
@@ -257,19 +291,4 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
            throw new RuntimeException(ex);
         }
     }
-    /*public static ResultSet ListarTabla(String consulta){
-        
-        conexaoBanco cn = conexao.conectar();
-        Statement sql;
-        ResultSet datos = null;
-        try{
-            sql=cn.createStatement()
-            datos =sql.executeQuery(consulta)
-            
-        }
-        } catch(Exception e){
-            System.out.println("error");   
-        }
-    }*/
-    
 }

@@ -6,6 +6,9 @@ package telas;
 
 import model.Funcionarios;
 import dao.FuncionariosDao;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Tobias
@@ -17,6 +20,15 @@ public class AlterarFuncionario extends javax.swing.JFrame {
      */
     public AlterarFuncionario() {
         initComponents();
+        /*DefaultTableModel model = (DefaultTableModel) tblFuncionarios.getModel();
+        model.addColumn("ID");
+        model.addColumn("CPF");
+        model.addColumn("Nome");
+        model.addColumn("Telefone");
+        model.addColumn("Usuario");
+        model.addColumn("Genero");
+        model.addColumn("Tipo Usuario");*/
+        listar();
     }
 
     /**
@@ -30,11 +42,9 @@ public class AlterarFuncionario extends javax.swing.JFrame {
 
         lblTitulo = new javax.swing.JLabel();
         lblIDAlterar = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblFuncionarios = new javax.swing.JTable();
         lblCPF = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
-        btnAdicionarFuncionario3 = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         txtIDAlterar = new javax.swing.JTextField();
         lblTelefone = new javax.swing.JLabel();
         txtSenha = new javax.swing.JTextField();
@@ -51,6 +61,9 @@ public class AlterarFuncionario extends javax.swing.JFrame {
         btnAlterar = new javax.swing.JButton();
         txtIDAlterado = new javax.swing.JTextField();
         lblIDAlterado = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblFuncionarios = new javax.swing.JTable();
+        Listar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,24 +72,14 @@ public class AlterarFuncionario extends javax.swing.JFrame {
 
         lblIDAlterar.setText("ID Funcionario para alterar:");
 
-        tblFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID Funcionarios", "CPF Funcionarios", "Nome Funcionarios", "Telefone Funcionarios", "Usuarios", "Genero Funcionarios", "Tipo de User"
-            }
-        ));
-        jScrollPane1.setViewportView(tblFuncionarios);
-
         lblCPF.setText("CPF Funcionario:");
 
         lblNome.setText("Nome Funcionario:");
 
-        btnAdicionarFuncionario3.setText("Sair");
-        btnAdicionarFuncionario3.addActionListener(new java.awt.event.ActionListener() {
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionarFuncionario3ActionPerformed(evt);
+                btnSairActionPerformed(evt);
             }
         });
 
@@ -147,6 +150,26 @@ public class AlterarFuncionario extends javax.swing.JFrame {
 
         lblIDAlterado.setText("ID Alterado:");
 
+        tblFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblFuncionarios);
+
+        Listar.setText("Listar");
+        Listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,6 +181,7 @@ public class AlterarFuncionario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblIDAlterar)
@@ -172,7 +196,7 @@ public class AlterarFuncionario extends javax.swing.JFrame {
                             .addComponent(txtNome)
                             .addComponent(txtTelefone)
                             .addComponent(txtIDAlterado))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,13 +215,14 @@ public class AlterarFuncionario extends javax.swing.JFrame {
                                     .addComponent(txtGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                                     .addComponent(txtTipoUser)
                                     .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(btnAdicionarFuncionario3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(83, 83, 83))
                             .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Listar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -211,20 +236,17 @@ public class AlterarFuncionario extends javax.swing.JFrame {
                     .addComponent(lblIDAlterar)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUsuario))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAdicionarFuncionario3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSenha)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIDAlterado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblIDAlterado))
-                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblSenha)
+                                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblIDAlterado))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtIDAlterado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -237,9 +259,7 @@ public class AlterarFuncionario extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTelefone))
-                                .addGap(50, 50, 50)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblTelefone)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -247,16 +267,72 @@ public class AlterarFuncionario extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTipoUser))))))
-                .addContainerGap(18, Short.MAX_VALUE))
+                                    .addComponent(lblTipoUser)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Listar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    /*private void listar() {
+    DefaultTableModel model = (DefaultTableModel) tblFuncionarios.getModel();
+    model.setRowCount(0); // Limpiar la tabla antes de cargar nuevos datos
 
-    private void btnAdicionarFuncionario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFuncionario3ActionPerformed
+    FuncionariosDao dao = new FuncionariosDao();
+    ArrayList<Funcionarios>funcionariosList = dao.dashboard();
+    //List<Funcionarios> funcionariosList = dao.dashboard();
+
+    for (Funcionarios funcionario : funcionariosList) {
+        model.addRow(new Object[]{
+            funcionario.getID_funcionario(),
+            funcionario.getCPF(),
+            funcionario.getNome(),
+            funcionario.getTelefone(),
+            funcionario.getUsuario(),
+            funcionario.getFK1_Sexo(),
+            funcionario.getTipo_User()
+        });
+    }
+*/
+    private void listar() {
+        DefaultTableModel model = (DefaultTableModel) tblFuncionarios.getModel();
+        model.setColumnCount(0);
+        model.addColumn("ID");
+        model.addColumn("CPF");
+        model.addColumn("Nome");
+        model.addColumn("Telefone");
+        model.addColumn("Usuario");
+        model.addColumn("Tipo Usuario");
+        model.setRowCount(0); // Limpiar la tabla antes de cargar nuevos datos
+
+        FuncionariosDao dao = new FuncionariosDao();
+        ArrayList<Funcionarios> funcionariosList = dao.dashboard();
+
+        for (Funcionarios funcionario : funcionariosList) {
+            model.addRow(new Object[]{
+                funcionario.getID_funcionario(),
+                funcionario.getCPF(),
+                funcionario.getNome(),
+                funcionario.getTelefone(),
+                funcionario.getUsuario(),
+                //funcionario.getFK1_Sexo(),
+                funcionario.getTipo_User()
+            });
+        }
+    }
+
+    
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btnAdicionarFuncionario3ActionPerformed
+    }//GEN-LAST:event_btnSairActionPerformed
 
     private void txtIDAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDAlterarActionPerformed
         // TODO add your handling code here:
@@ -287,16 +363,14 @@ public class AlterarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTipoUserActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-
+        int fila = tblFuncionarios.getSelectedRow();
         Funcionarios funcionario = new Funcionarios();
-        funcionario.setID_funcionario(Integer.parseInt(txtIDAlterado.getText()));
-        funcionario.setCPF(txtCPF.getText());
-        funcionario.setNome(txtNome.getText());
-        funcionario.setTelefone(txtTelefone.getText());
-        funcionario.setUsuario(txtUsuario.getText());
-        funcionario.setSenha(txtSenha.getText());
-        funcionario.setFK1_Sexo(txtGenero.getText());
-        funcionario.setTipo_User(Integer.parseInt(txtTipoUser.getText()));
+        funcionario.setID_funcionario(Integer.parseInt(tblFuncionarios.getValueAt(fila, 0).toString()));
+        funcionario.setCPF(tblFuncionarios.getValueAt(fila, 1).toString());
+        funcionario.setNome( tblFuncionarios.getValueAt(fila, 2).toString());
+        funcionario.setTelefone( tblFuncionarios.getValueAt(fila, 3).toString());
+        funcionario.setUsuario( tblFuncionarios.getValueAt(fila, 4).toString());
+        funcionario.setTipo_User(Integer.parseInt( tblFuncionarios.getValueAt(fila, 5).toString()));
         FuncionariosDao funcionariosDao = new FuncionariosDao();
         funcionariosDao.alterar(funcionario);
     }//GEN-LAST:event_btnAlterarActionPerformed
@@ -304,6 +378,10 @@ public class AlterarFuncionario extends javax.swing.JFrame {
     private void txtIDAlteradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDAlteradoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDAlteradoActionPerformed
+
+    private void ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarActionPerformed
+        listar();
+    }//GEN-LAST:event_ListarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -338,11 +416,14 @@ public class AlterarFuncionario extends javax.swing.JFrame {
                 new AlterarFuncionario().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdicionarFuncionario3;
+    private javax.swing.JButton Listar;
     private javax.swing.JButton btnAlterar;
+    private javax.swing.JButton btnSair;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblGenero;
