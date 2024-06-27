@@ -65,7 +65,7 @@ public class AlterarFuncionario extends javax.swing.JFrame {
         tblFuncionarios = new javax.swing.JTable();
         Listar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         lblTitulo.setText("Alterar Funcionario");
@@ -280,6 +280,7 @@ public class AlterarFuncionario extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     /*private void listar() {
