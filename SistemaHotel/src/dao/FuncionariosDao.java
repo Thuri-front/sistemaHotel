@@ -161,7 +161,7 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
         }
     }
     
-    public void Login(String Usuario, String Senha) {
+    public void Login(TelaLogin telaLogin, String Usuario, String Senha) {
         String sql = "SELECT * FROM Funcionario WHERE Usuario = ? AND Senha = ?";
         
         try
@@ -177,6 +177,7 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
                     JOptionPane.showMessageDialog(null, "Usuario encontrado");
                     TelaPrincipal tela = new TelaPrincipal();
                     tela.setVisible(true);
+                    telaLogin.dispose();
                    /* TelaLogin telaLogin = new TelaLogin();
                     telaLogin.setVisible(false);*/
                     
