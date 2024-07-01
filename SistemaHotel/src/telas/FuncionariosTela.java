@@ -363,7 +363,7 @@ public class FuncionariosTela extends javax.swing.JFrame {
         txtTipoUser.setText("");
         listar();
     }//GEN-LAST:event_btnListarActionPerformed
-private void atualizaTabela(FuncionariosDao funcionariosDao)
+/*private void atualizaTabela(FuncionariosDao funcionariosDao)
     {
         new Thread(){
            @Override public void run(){
@@ -401,7 +401,7 @@ private void atualizaTabela(FuncionariosDao funcionariosDao)
                 }
            }
         }.start();   
-    }
+    }*/
     /**
      * @param args the command line arguments
      */

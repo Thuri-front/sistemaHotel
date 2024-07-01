@@ -7,6 +7,8 @@ package dao;
 
 import com.mysql.cj.xdevapi.Statement;
 import com.sun.jdi.connect.spi.Connection;
+import dao.DaoGenerica;
+import dao.conexaoBanco;
 import java.awt.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -162,7 +164,7 @@ public class FuncionariosDao implements DaoGenerica<Funcionarios>{
     }
     
     public void Login(TelaLogin telaLogin, String Usuario, String Senha) {
-        String sql = "SELECT * FROM Funcionario WHERE Usuario = ? AND Senha = ?";
+        String sql = "SELECT * FROM Funcionario WHERE Usuario == ? AND Senha == ?";
         
         try
         {
